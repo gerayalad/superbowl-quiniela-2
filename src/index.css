@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0D0015;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom scrollbar - magenta theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #150020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E91E8C, #00D4FF);
+  border-radius: 3px;
+}
+
+/* Glassmorphism base - with magenta tint */
+.glass {
+  background: rgba(233, 30, 140, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(233, 30, 140, 0.2);
+}
+
+.glass-dark {
+  background: rgba(13, 0, 21, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(233, 30, 140, 0.15);
+}
+
+/* Safari fallback - reduced blur and disabled animations for better performance */
+@supports (-webkit-touch-callout: none) {
+  .glass-dark {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(13, 0, 21, 0.95);
+  }
+
+  .glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Disable expensive infinite animations in Safari */
+  .pot-animate {
+    animation: none !important;
+  }
+
+  .shimmer {
+    animation: none !important;
+    background: transparent !important;
+  }
+
+  .bg-animated {
+    animation: none !important;
+    background: #0D0015 !important;
+  }
+
+  /* Reduce neon glow effects */
+  .neon-border {
+    box-shadow: 0 0 5px rgba(233, 30, 140, 0.3);
+  }
+
+  .neon-border-cyan {
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+  }
+
+  .neon-border-green {
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+  }
+}
+
+/* Neon text effect - magenta/cyan */
+.neon-text {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+.neon-text-subtle {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor;
+}
+
+/* Neon border - magenta */
+.neon-border {
+  box-shadow:
+    0 0 5px rgba(233, 30, 140, 0.5),
+    0 0 10px rgba(233, 30, 140, 0.3),
+    0 0 20px rgba(233, 30, 140, 0.2),
+    inset 0 0 5px rgba(233, 30, 140, 0.1);
+  border-color: rgba(233, 30, 140, 0.5);
+}
+
+.neon-border-cyan {
+  box-shadow:
+    0 0 5px rgba(0, 212, 255, 0.5),
+    0 0 10px rgba(0, 212, 255, 0.3),
+    inset 0 0 5px rgba(0, 212, 255, 0.1);
+}
+
+.neon-border-green {
+  box-shadow:
+    0 0 5px rgba(57, 255, 20, 0.5),
+    0 0 10px rgba(57, 255, 20, 0.3),
+    inset 0 0 5px rgba(57, 255, 20, 0.1);
+}
+
+/* Button styles */
+.btn-neon {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-neon:hover::before {
+  left: 100%;
+}
+
+/* Animated background gradient - SB LX style */
+.bg-animated {
+  background: linear-gradient(-45deg, #0D0015, #2D1440, #7C3AED, #E91E8C);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* SB LX Radial background */
+.bg-sb-radial {
+  background:
+    radial-gradient(ellipse at top, rgba(233, 30, 140, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(0, 212, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+    #0D0015;
+}
+
+/* Card flip animation */
+.card-flip {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Pulse animation for pot - magenta */
+@keyframes pot-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 10px rgba(233, 30, 140, 0.5));
+  }
+  50% {
+    transform: scale(1.02);
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(233, 30, 140, 0.8));
+  }
+}
+
+.pot-animate {
+  animation: pot-pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(233, 30, 140, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Team colors */
+.seahawks-gradient {
+  background: linear-gradient(135deg, #002244 0%, #69BE28 100%);
+}
+
+.patriots-gradient {
+  background: linear-gradient(135deg, #002244 0%, #C60C30 100%);
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: float-particle 10s infinite;
+  opacity: 0.6;
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Touch feedback */
+.touch-feedback:active {
+  transform: scale(0.98);
+}
+
+/* Hide number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Chrome/metallic effect for text */
+.chrome-text {
+  background: linear-gradient(180deg, #ffffff 0%, #c0c0c0 50%, #808080 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+}
+
+/* Gradient text - magenta to cyan */
+.gradient-text {
+  background: linear-gradient(90deg, #E91E8C, #00D4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SB LX Logo specific */
+.sb-logo {
+  text-shadow:
+    0 0 10px rgba(233, 30, 140, 0.8),
+    0 0 20px rgba(233, 30, 140, 0.6),
+    0 0 30px rgba(233, 30, 140, 0.4);
+}
+
+/* Input focus state */
+input:focus {
+  outline: none;
+  border-color: #E91E8C !important;
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.2);
+}
