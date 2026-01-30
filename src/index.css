@@ -13,39 +13,39 @@ html {
 }
 
 body {
-  background: #0D0015;
+  background: #0A1628;
   min-height: 100vh;
   overflow-x: hidden;
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* Custom scrollbar - magenta theme */
+/* Custom scrollbar - team colors theme */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #150020;
+  background: #0F1E32;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #E91E8C, #00D4FF);
+  background: linear-gradient(180deg, #69BE28, #C60C30);
   border-radius: 3px;
 }
 
-/* Glassmorphism base - with magenta tint */
+/* Glassmorphism base - with team colors */
 .glass {
-  background: rgba(233, 30, 140, 0.08);
+  background: rgba(105, 190, 40, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(233, 30, 140, 0.2);
+  border: 1px solid rgba(105, 190, 40, 0.2);
 }
 
 .glass-dark {
-  background: rgba(13, 0, 21, 0.85);
+  background: rgba(10, 22, 40, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(233, 30, 140, 0.15);
+  border: 1px solid rgba(105, 190, 40, 0.15);
 }
 
 /* Safari fallback - reduced blur and disabled animations for better performance */
@@ -53,7 +53,7 @@ body {
   .glass-dark {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    background: rgba(13, 0, 21, 0.95);
+    background: rgba(10, 22, 40, 0.95);
   }
 
   .glass {
@@ -73,20 +73,20 @@ body {
 
   .bg-animated {
     animation: none !important;
-    background: #0D0015 !important;
+    background: #0A1628 !important;
   }
 
   /* Reduce neon glow effects */
   .neon-border {
-    box-shadow: 0 0 5px rgba(233, 30, 140, 0.3);
+    box-shadow: 0 0 5px rgba(105, 190, 40, 0.3);
   }
 
   .neon-border-cyan {
-    box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 5px rgba(198, 12, 48, 0.3);
   }
 
   .neon-border-green {
-    box-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+    box-shadow: 0 0 5px rgba(105, 190, 40, 0.3);
   }
 }
 
@@ -105,28 +105,28 @@ body {
     0 0 10px currentColor;
 }
 
-/* Neon border - magenta */
+/* Neon border - Seahawks green */
 .neon-border {
   box-shadow:
-    0 0 5px rgba(233, 30, 140, 0.5),
-    0 0 10px rgba(233, 30, 140, 0.3),
-    0 0 20px rgba(233, 30, 140, 0.2),
-    inset 0 0 5px rgba(233, 30, 140, 0.1);
-  border-color: rgba(233, 30, 140, 0.5);
+    0 0 5px rgba(105, 190, 40, 0.5),
+    0 0 10px rgba(105, 190, 40, 0.3),
+    0 0 20px rgba(105, 190, 40, 0.2),
+    inset 0 0 5px rgba(105, 190, 40, 0.1);
+  border-color: rgba(105, 190, 40, 0.5);
 }
 
 .neon-border-cyan {
   box-shadow:
-    0 0 5px rgba(0, 212, 255, 0.5),
-    0 0 10px rgba(0, 212, 255, 0.3),
-    inset 0 0 5px rgba(0, 212, 255, 0.1);
+    0 0 5px rgba(198, 12, 48, 0.5),
+    0 0 10px rgba(198, 12, 48, 0.3),
+    inset 0 0 5px rgba(198, 12, 48, 0.1);
 }
 
 .neon-border-green {
   box-shadow:
-    0 0 5px rgba(57, 255, 20, 0.5),
-    0 0 10px rgba(57, 255, 20, 0.3),
-    inset 0 0 5px rgba(57, 255, 20, 0.1);
+    0 0 5px rgba(105, 190, 40, 0.5),
+    0 0 10px rgba(105, 190, 40, 0.3),
+    inset 0 0 5px rgba(105, 190, 40, 0.1);
 }
 
 /* Button styles */
@@ -156,9 +156,9 @@ body {
   left: 100%;
 }
 
-/* Animated background gradient - SB LX style */
+/* Animated background gradient - Team colors */
 .bg-animated {
-  background: linear-gradient(-45deg, #0D0015, #2D1440, #7C3AED, #E91E8C);
+  background: linear-gradient(-45deg, #0A1628, #002244, #1B4D2E, #69BE28);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -169,13 +169,13 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* SB LX Radial background */
+/* Team colors Radial background */
 .bg-sb-radial {
   background:
-    radial-gradient(ellipse at top, rgba(233, 30, 140, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(0, 212, 255, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom left, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
-    #0D0015;
+    radial-gradient(ellipse at top, rgba(105, 190, 40, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(198, 12, 48, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(0, 34, 68, 0.2) 0%, transparent 50%),
+    #0A1628;
 }
 
 /* Card flip animation */
@@ -188,15 +188,15 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Pulse animation for pot - magenta */
+/* Pulse animation for pot - Seahawks green */
 @keyframes pot-pulse {
   0%, 100% {
     transform: scale(1);
-    filter: brightness(1) drop-shadow(0 0 10px rgba(233, 30, 140, 0.5));
+    filter: brightness(1) drop-shadow(0 0 10px rgba(105, 190, 40, 0.5));
   }
   50% {
     transform: scale(1.02);
-    filter: brightness(1.2) drop-shadow(0 0 20px rgba(233, 30, 140, 0.8));
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(105, 190, 40, 0.8));
   }
 }
 
@@ -209,7 +209,7 @@ body {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(233, 30, 140, 0.1) 50%,
+    rgba(105, 190, 40, 0.1) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   background-size: 200% 100%;
@@ -277,9 +277,9 @@ input[type="number"]::-webkit-outer-spin-button {
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
 }
 
-/* Gradient text - magenta to cyan */
+/* Gradient text - green to red */
 .gradient-text {
-  background: linear-gradient(90deg, #E91E8C, #00D4FF);
+  background: linear-gradient(90deg, #69BE28, #C60C30);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -287,14 +287,14 @@ input[type="number"]::-webkit-outer-spin-button {
 /* SB LX Logo specific */
 .sb-logo {
   text-shadow:
-    0 0 10px rgba(233, 30, 140, 0.8),
-    0 0 20px rgba(233, 30, 140, 0.6),
-    0 0 30px rgba(233, 30, 140, 0.4);
+    0 0 10px rgba(105, 190, 40, 0.8),
+    0 0 20px rgba(105, 190, 40, 0.6),
+    0 0 30px rgba(105, 190, 40, 0.4);
 }
 
 /* Input focus state */
 input:focus {
   outline: none;
-  border-color: #E91E8C !important;
-  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.2);
+  border-color: #69BE28 !important;
+  box-shadow: 0 0 0 3px rgba(105, 190, 40, 0.2);
 }

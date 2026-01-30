@@ -67,8 +67,8 @@ const ParticleField = () => {
       delay: Math.random() * 10,
       duration: 10 + Math.random() * 10,
       size: 2 + Math.random() * 4,
-      // SB LX colors: magenta, cyan, purple, gold
-      color: ['#E91E8C', '#00D4FF', '#7C3AED', '#FACC15'][Math.floor(Math.random() * 4)]
+      // Team colors: Seahawks green, Patriots red, navy, gold
+      color: ['#69BE28', '#C60C30', '#002244', '#FACC15'][Math.floor(Math.random() * 4)]
     })), [particleCount]
   );
 
@@ -161,7 +161,7 @@ const NeonButton = ({ children, onClick, variant = 'primary', disabled = false, 
   // Safari: simpler hover without expensive boxShadow animation
   const hoverProps = shouldReduceEffects
     ? { scale: disabled ? 1 : 1.05 }
-    : { scale: disabled ? 1 : 1.05, boxShadow: '0 0 30px rgba(233, 30, 140, 0.5)' };
+    : { scale: disabled ? 1 : 1.05, boxShadow: '0 0 30px rgba(105, 190, 40, 0.5)' };
 
   return (
     <motion.button
@@ -202,7 +202,7 @@ const Modal = ({ isOpen, onClose, children, title }) => (
                      border border-white/20
                      shadow-2xl shadow-sb-magenta/10"
           style={{
-            boxShadow: '0 0 40px rgba(233, 30, 140, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+            boxShadow: '0 0 40px rgba(105, 190, 40, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5)'
           }}
           initial={{ scale: 0.9, y: 20 }}
           animate={{ scale: 1, y: 0 }}
@@ -249,16 +249,16 @@ const Logo = ({ size = 'large' }) => {
       {shouldReduceEffects ? (
         <div
           className={`absolute inset-0 ${glowSizes[size]} opacity-60`}
-          style={{ background: 'radial-gradient(circle, rgba(233,30,140,0.4) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(105,190,40,0.4) 0%, transparent 70%)' }}
         />
       ) : (
         <motion.div
           className={`absolute inset-0 ${glowSizes[size]} opacity-60`}
           animate={{
             background: [
-              'radial-gradient(circle, rgba(233,30,140,0.4) 0%, transparent 70%)',
-              'radial-gradient(circle, rgba(0,212,255,0.4) 0%, transparent 70%)',
-              'radial-gradient(circle, rgba(233,30,140,0.4) 0%, transparent 70%)'
+              'radial-gradient(circle, rgba(105,190,40,0.4) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(198,12,48,0.4) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(105,190,40,0.4) 0%, transparent 70%)'
             ]
           }}
           transition={{ duration: 3, repeat: Infinity }}
@@ -269,20 +269,20 @@ const Logo = ({ size = 'large' }) => {
         <div
           className={`font-display font-black ${sizes[size]} tracking-wider relative z-10
                      drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]`}
-          style={{ textShadow: '0 0 20px #E91E8C' }}
+          style={{ textShadow: '0 0 20px #69BE28' }}
         >
-          <span className="text-sb-magenta drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SB</span>
-          <span className="text-sb-cyan mx-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">LX</span>
+          <span className="text-seahawks-green drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SB</span>
+          <span className="text-patriots-red mx-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">LX</span>
         </div>
       ) : (
         <motion.div
           className={`font-display font-black ${sizes[size]} tracking-wider relative z-10
                      drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]`}
-          animate={{ textShadow: ['0 0 20px #E91E8C', '0 0 30px #00D4FF', '0 0 20px #E91E8C'] }}
+          animate={{ textShadow: ['0 0 20px #69BE28', '0 0 30px #C60C30', '0 0 20px #69BE28'] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <span className="text-sb-magenta drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SB</span>
-          <span className="text-sb-cyan mx-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">LX</span>
+          <span className="text-seahawks-green drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">SB</span>
+          <span className="text-patriots-red mx-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">LX</span>
         </motion.div>
       )}
       <motion.div
@@ -292,7 +292,7 @@ const Logo = ({ size = 'large' }) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        Quiniela 2026
+        Quiniela Compadels!
       </motion.div>
     </motion.div>
   );
@@ -622,7 +622,7 @@ const LandingScreen = ({ onEnter }) => {
                 className="space-y-4"
               >
                 <div className="text-center">
-                  <h2 className="text-xl font-bold text-white mb-1">Entra a la Quiniela</h2>
+                  <h2 className="text-xl font-bold text-white mb-1">Entra a Compadels!</h2>
                   <p className="text-sm text-white/50">Ingresa tu nickname para participar</p>
                 </div>
 
@@ -728,7 +728,7 @@ const LandingScreen = ({ onEnter }) => {
       <Modal
         isOpen={step === 'disclaimer'}
         onClose={() => setStep('pin')}
-        title="¿Le entras a la quiniela?"
+        title="¿Le entras a Compadels?"
       >
         <div className="text-center space-y-6">
           {/* Money icon with glow */}
@@ -765,7 +765,7 @@ const LandingScreen = ({ onEnter }) => {
               $500 MXN
             </motion.h4>
             <p className="text-white/90">
-              La entrada a la <span className="font-bold text-sb-magenta">quiniela</span> es de 500 pesos. Tienes hasta 5 min antes de que inicie el partido para meter tus resultados.
+              La entrada a <span className="font-bold text-sb-magenta">Compadels</span> es de 500 pesos. Tienes hasta 5 min antes de que inicie el partido para meter tus resultados.
             </p>
             <p className="text-white/60 text-sm">
               Pásaselos al admin o transfiere a:
@@ -812,10 +812,10 @@ const LandingScreen = ({ onEnter }) => {
                        bg-gradient-to-r from-sb-magenta via-sb-fuchsia to-sb-magenta
                        shadow-lg shadow-sb-magenta/40 border-2 border-white/20
                        disabled:opacity-50"
-              whileHover={{ scale: loading ? 1 : 1.03, boxShadow: '0 0 30px rgba(233, 30, 140, 0.5)' }}
+              whileHover={{ scale: loading ? 1 : 1.03, boxShadow: '0 0 30px rgba(105, 190, 40, 0.5)' }}
               whileTap={{ scale: loading ? 1 : 0.98 }}
             >
-              {loading ? 'Registrando...' : 'Me enclocho'}
+              {loading ? 'Registrando...' : 'Me jalo'}
             </motion.button>
           </div>
         </div>
@@ -904,7 +904,7 @@ const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderb
                 {/* Safari: skip pot-animate class */}
                 <div
                   className={`text-4xl sm:text-5xl font-display font-black text-sb-magenta ${shouldReduceEffects ? '' : 'pot-animate'}`}
-                  style={{ textShadow: '0 0 30px rgba(233, 30, 140, 0.6)' }}
+                  style={{ textShadow: '0 0 30px rgba(105, 190, 40, 0.6)' }}
                 >
                   {formatMoney(animatedPot)}
                 </div>
@@ -916,18 +916,28 @@ const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderb
             </GlassCard>
           </motion.div>
 
-          {/* Prize - Winner takes all */}
+          {/* Prize - Split in 3 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
             <GlassCard className="p-4">
-              <div className="flex items-center justify-center text-center">
+              <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="space-y-1">
-                  <Crown className="w-8 h-8 mx-auto text-yellow-400" />
-                  <div className="text-sm text-white/50">Winner takes it all</div>
-                  <div className="font-bold text-xl text-white">{formatMoney(potAmount)}</div>
+                  <Crown className="w-6 h-6 mx-auto text-yellow-400" />
+                  <div className="text-xs text-white/50">1er Lugar</div>
+                  <div className="font-bold text-lg text-white">{formatMoney(Math.round(potAmount * 0.6))}</div>
+                </div>
+                <div className="space-y-1">
+                  <Award className="w-6 h-6 mx-auto text-gray-300" />
+                  <div className="text-xs text-white/50">2do Lugar</div>
+                  <div className="font-bold text-lg text-white">{formatMoney(Math.round(potAmount * 0.3))}</div>
+                </div>
+                <div className="space-y-1">
+                  <Star className="w-6 h-6 mx-auto text-amber-600" />
+                  <div className="text-xs text-white/50">3er Lugar</div>
+                  <div className="font-bold text-lg text-white">{formatMoney(Math.round(potAmount * 0.1))}</div>
                 </div>
               </div>
             </GlassCard>
@@ -967,13 +977,13 @@ const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderb
                          bg-gradient-to-r from-sb-magenta via-sb-fuchsia to-sb-magenta
                          shadow-xl shadow-sb-magenta/30 border-2 border-white/20
                          relative overflow-hidden"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(233, 30, 140, 0.5)' }}
+                whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(105, 190, 40, 0.5)' }}
                 whileTap={{ scale: 0.98 }}
                 animate={{
                   boxShadow: [
-                    '0 10px 40px rgba(233, 30, 140, 0.3)',
-                    '0 10px 50px rgba(233, 30, 140, 0.5)',
-                    '0 10px 40px rgba(233, 30, 140, 0.3)'
+                    '0 10px 40px rgba(105, 190, 40, 0.3)',
+                    '0 10px 50px rgba(105, 190, 40, 0.5)',
+                    '0 10px 40px rgba(105, 190, 40, 0.3)'
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -1759,8 +1769,8 @@ const TicketScreen = ({ nickname, predictions, onRestart, onLeaderboard, onEditP
 
 export default function App() {
   const [screen, setScreen] = useState('landing');
-  const [user, setUser] = useLocalStorage('quiniela_user', null);
-  const [predictions, setPredictions] = useLocalStorage('quiniela_predictions', {});
+  const [user, setUser] = useLocalStorage('compadels_user', null);
+  const [predictions, setPredictions] = useLocalStorage('compadels_predictions', {});
   const [participants, setParticipants] = useState(0);
   const [predictionsLocked, setPredictionsLocked] = useState(false);
   const [answersVisible, setAnswersVisible] = useState(false);

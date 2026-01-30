@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Official SB LX Colors
+        // Team-based Colors for Compadels
         sb: {
-          magenta: '#E91E8C',
-          fuchsia: '#D946EF',
-          pink: '#F472B6',
-          purple: '#7C3AED',
-          cyan: '#00D4FF',
-          teal: '#06B6D4',
+          magenta: '#69BE28',  // Seahawks green as primary
+          fuchsia: '#4A9E1C',  // Darker green
+          pink: '#8CD450',     // Lighter green
+          purple: '#002244',   // Navy (shared by both teams)
+          cyan: '#C60C30',     // Patriots red as accent
+          teal: '#A00A28',     // Darker red
           gold: '#FACC15',
           silver: '#C0C0C0',
         },
@@ -30,19 +30,19 @@ export default {
           red: '#C60C30',
           silver: '#B0B7BC',
         },
-        // Neon accents (keeping some)
+        // Neon accents
         neon: {
-          cyan: '#00F5FF',
-          green: '#39FF14',
-          pink: '#FF10F0',
-          magenta: '#E91E8C',
+          cyan: '#C60C30',
+          green: '#69BE28',
+          pink: '#C60C30',
+          magenta: '#69BE28',
         },
-        // Dark theme - with purple tint
+        // Dark theme - navy based
         dark: {
-          900: '#0D0015',
-          800: '#150020',
-          700: '#1F0A2E',
-          600: '#2D1440',
+          900: '#0A1628',
+          800: '#0F1E32',
+          700: '#15263D',
+          600: '#1B2E48',
         }
       },
       fontFamily: {
@@ -63,12 +63,12 @@ export default {
       keyframes: {
         'pulse-neon': {
           '0%, 100%': {
-            boxShadow: '0 0 5px #E91E8C, 0 0 10px #E91E8C, 0 0 20px #E91E8C',
-            borderColor: '#E91E8C'
+            boxShadow: '0 0 5px #69BE28, 0 0 10px #69BE28, 0 0 20px #69BE28',
+            borderColor: '#69BE28'
           },
           '50%': {
-            boxShadow: '0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 40px #00D4FF',
-            borderColor: '#00D4FF'
+            boxShadow: '0 0 10px #C60C30, 0 0 20px #C60C30, 0 0 40px #C60C30',
+            borderColor: '#C60C30'
           },
         },
         'float': {
@@ -76,8 +76,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         'glow': {
-          '0%': { textShadow: '0 0 10px #E91E8C, 0 0 20px #E91E8C' },
-          '100%': { textShadow: '0 0 20px #00D4FF, 0 0 40px #00D4FF' },
+          '0%': { textShadow: '0 0 10px #69BE28, 0 0 20px #69BE28' },
+          '100%': { textShadow: '0 0 20px #C60C30, 0 0 40px #C60C30' },
         },
         'slide-up': {
           '0%': { transform: 'translateY(100%)', opacity: '0' },
@@ -93,8 +93,8 @@ export default {
         },
       },
       backgroundImage: {
-        'sb-gradient': 'linear-gradient(135deg, #0D0015 0%, #2D1440 25%, #E91E8C 100%)',
-        'sb-radial': 'radial-gradient(ellipse at top, #E91E8C 0%, #7C3AED 50%, #0D0015 100%)',
+        'sb-gradient': 'linear-gradient(135deg, #0A1628 0%, #002244 25%, #69BE28 100%)',
+        'sb-radial': 'radial-gradient(ellipse at top, #69BE28 0%, #002244 50%, #0A1628 100%)',
       },
     },
   },

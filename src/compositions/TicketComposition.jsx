@@ -8,14 +8,14 @@ import {
   Sequence,
 } from 'remotion';
 
-// SB LX Official Colors
+// Team Colors for Compadels
 const COLORS = {
-  magenta: '#E91E8C',
-  fuchsia: '#D946EF',
-  cyan: '#00D4FF',
-  purple: '#7C3AED',
+  magenta: '#69BE28',  // Seahawks green
+  fuchsia: '#4A9E1C',  // Darker green
+  cyan: '#C60C30',     // Patriots red
+  purple: '#002244',   // Navy
   gold: '#FACC15',
-  dark: '#0D0015',
+  dark: '#0A1628',
 };
 
 // Background with animated gradient - SB LX style
@@ -25,14 +25,14 @@ const AnimatedBackground = () => {
 
   return (
     <AbsoluteFill>
-      {/* Dark purple base */}
+      {/* Dark navy base */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: `linear-gradient(180deg, ${COLORS.dark} 0%, #150020 50%, #2D1440 100%)`,
+        background: `linear-gradient(180deg, ${COLORS.dark} 0%, #0F1E32 50%, #15263D 100%)`,
       }} />
 
-      {/* Animated gradient orbs - magenta */}
+      {/* Animated gradient orbs - Seahawks green */}
       <div style={{
         position: 'absolute',
         top: '5%',
@@ -82,7 +82,7 @@ const AnimatedBackground = () => {
   );
 };
 
-// Animated particles - SB LX colors
+// Animated particles - Team colors
 const Particles = () => {
   const frame = useCurrentFrame();
   const particleColors = [COLORS.magenta, COLORS.cyan, COLORS.purple, COLORS.gold];
@@ -131,7 +131,7 @@ const Particles = () => {
   );
 };
 
-// Logo component - SB LX style
+// Logo component - Team colors style
 const Logo = ({ scale = 1 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -181,7 +181,7 @@ const Logo = ({ scale = 1 }) => {
         marginTop: 5,
         opacity: 0.8,
       }}>
-        Quiniela 2026
+        Quiniela Compadels!
       </div>
     </div>
   );
@@ -451,7 +451,7 @@ export const TicketComposition = ({ nickname, winner, mvp, totalPoints }) => {
         letterSpacing: '0.2em',
         opacity: 0.5,
       }}>
-        QUINIELA SB LX • 2026
+        QUINIELA COMPADELS • SB LX 2026
       </div>
     </AbsoluteFill>
   );
