@@ -815,7 +815,7 @@ const LandingScreen = ({ onEnter }) => {
               whileHover={{ scale: loading ? 1 : 1.03, boxShadow: '0 0 30px rgba(105, 190, 40, 0.5)' }}
               whileTap={{ scale: loading ? 1 : 0.98 }}
             >
-              {loading ? 'Registrando...' : 'Me jalo'}
+              {loading ? 'Registrando...' : 'Jalo'}
             </motion.button>
           </div>
         </div>
