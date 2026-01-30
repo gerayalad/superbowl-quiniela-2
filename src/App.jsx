@@ -8,7 +8,7 @@ import {
 import { questions, eventInfo, rules } from './data/questions';
 import LeaderboardScreen from './screens/LeaderboardScreen';
 import AdminScreen from './screens/AdminScreen';
-import { checkNickname, registerUser, loginUser, savePredictions, getUserPredictions, getSettings, getPublicCorrectAnswers } from './services/api';
+import { checkNickname, registerUser, loginUser, savePredictions, getUserPredictions, getSettings, getPublicCorrectAnswers, getUsersCount } from './services/api';
 import { useSafari } from './contexts/SafariContext';
 
 // ============================================
@@ -831,7 +831,7 @@ const LandingScreen = ({ onEnter }) => {
 const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderboard, onViewTicket, answeredCount, onLogout }) => {
   const { shouldReduceEffects } = useSafari();
   const [showRules, setShowRules] = useState(false);
-  const potAmount = (participants + 1) * eventInfo.entryFee;
+  const potAmount = participants * eventInfo.entryFee;
   const animatedPot = useAnimatedNumber(potAmount, 2500);
 
   const formatMoney = (num) => {
@@ -910,7 +910,7 @@ const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderb
                 </div>
                 <div className="flex items-center justify-center gap-2 text-white/40 text-sm">
                   <Users className="w-4 h-4" />
-                  <span>{participants + 1} participantes</span>
+                  <span>{participants} participantes</span>
                 </div>
               </div>
             </GlassCard>
@@ -1797,7 +1797,18 @@ export default function App() {
         console.error('Error fetching settings:', error);
       }
     };
+
+    const fetchParticipants = async () => {
+      try {
+        const result = await getUsersCount();
+        setParticipants(result.count || 0);
+      } catch (error) {
+        console.error('Error fetching participants count:', error);
+      }
+    };
+
     fetchSettings();
+    fetchParticipants();
   }, []);
 
   const handleEnter = async (userData) => {
