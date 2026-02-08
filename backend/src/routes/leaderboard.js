@@ -21,7 +21,7 @@ export default function leaderboardRouter(pool) {
           FROM users u
           INNER JOIN predictions p ON u.id = p.user_id
           GROUP BY u.id, u.nickname, u.created_at
-          HAVING COUNT(p.id) = 17
+          HAVING COUNT(p.id) >= 1
         `),
         pool.query('SELECT question_id, answer FROM correct_answers')
       ]);

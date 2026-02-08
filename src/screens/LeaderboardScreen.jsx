@@ -220,8 +220,11 @@ const LeaderboardScreen = ({ user, onViewTicket, onBack }) => {
                           {entry.nickname}
                           {entry.id === user?.id && <span className="text-xs ml-2 text-white/50">(tú)</span>}
                         </div>
-                        <div className="text-xs text-white/40">
-                          {entry.correctCount} aciertos
+                        <div className="text-xs text-white/40 flex items-center gap-2">
+                          <span>{entry.correctCount} aciertos</span>
+                          <span className={entry.answeredCount < 17 ? 'text-yellow-400' : 'text-white/30'}>
+                            {entry.answeredCount}/17
+                          </span>
                         </div>
                       </div>
 
