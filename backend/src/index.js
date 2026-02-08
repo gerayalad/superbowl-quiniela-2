@@ -7,6 +7,7 @@ import usersRouter from './routes/users.js';
 import predictionsRouter from './routes/predictions.js';
 import leaderboardRouter from './routes/leaderboard.js';
 import adminRouter from './routes/admin.js';
+import resultsRouter from './routes/results.js';
 
 dotenv.config();
 
@@ -58,6 +59,7 @@ app.use('/api/users', usersRouter(pool));
 app.use('/api/predictions', predictionsRouter(pool));
 app.use('/api/leaderboard', leaderboardRouter(pool));
 app.use('/api/admin', adminRouter(pool));
+app.use('/api/results', resultsRouter(pool));
 
 // Health check
 app.get('/api/health', (req, res) => {

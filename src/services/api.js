@@ -90,6 +90,11 @@ export async function getPublicCorrectAnswers() {
   return fetchApi('/answers');
 }
 
+// Results distribution
+export async function getResultsDistribution() {
+  return fetchApi('/results');
+}
+
 // Admin
 export async function verifyAdminPin(pin) {
   return fetchApi('/admin/verify', {

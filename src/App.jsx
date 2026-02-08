@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy, Users, DollarSign, ChevronRight, ChevronLeft,
   X, Check, Info, Sparkles, Zap, Star, Crown, Gift,
-  Music, Flag, Target, Clock, Award, Copy, Shield, Ticket, LogOut
+  Music, Flag, Target, Clock, Award, Copy, Shield, Ticket, LogOut, BarChart3
 } from 'lucide-react';
 import { questions, eventInfo, rules } from './data/questions';
 import LeaderboardScreen from './screens/LeaderboardScreen';
 import AdminScreen from './screens/AdminScreen';
+import ResultsScreen from './screens/ResultsScreen';
 import { checkNickname, registerUser, loginUser, savePredictions, getUserPredictions, getSettings, getPublicCorrectAnswers, getUsersCount } from './services/api';
 import { useSafari } from './contexts/SafariContext';
 
@@ -828,7 +829,7 @@ const LandingScreen = ({ onEnter }) => {
 // DASHBOARD SCREEN
 // ============================================
 
-const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderboard, onViewTicket, answeredCount, onLogout }) => {
+const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderboard, onResults, onViewTicket, answeredCount, onLogout }) => {
   const { shouldReduceEffects } = useSafari();
   const [showRules, setShowRules] = useState(false);
   const potAmount = participants * eventInfo.entryFee;
@@ -1038,6 +1039,18 @@ const DashboardScreen = ({ nickname, participants, onStartPredictions, onLeaderb
             >
               <Trophy className="w-5 h-5 text-sb-cyan" />
               <span className="text-white font-medium">Ver Leaderboard</span>
+              <ChevronRight className="w-5 h-5 text-white/50" />
+            </button>
+
+            {/* Results Button */}
+            <button
+              onClick={onResults}
+              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-sb-purple/20 to-sb-cyan/20
+                       border border-sb-purple/30 hover:border-sb-purple/50
+                       flex items-center justify-center gap-3 transition-all hover:scale-[1.02]"
+            >
+              <BarChart3 className="w-5 h-5 text-sb-purple" />
+              <span className="text-white font-medium">Ver Resultados del Grupo</span>
               <ChevronRight className="w-5 h-5 text-white/50" />
             </button>
           </motion.div>
@@ -1866,6 +1879,10 @@ export default function App() {
     setScreen('predictions');
   };
 
+  const handleResults = () => {
+    setScreen('results');
+  };
+
   const handleRestart = () => {
     setScreen('dashboard');
   };
@@ -1951,6 +1968,7 @@ export default function App() {
               participants={participants}
               onStartPredictions={handleStartPredictions}
               onLeaderboard={handleLeaderboard}
+              onResults={handleResults}
               onViewTicket={handleViewTicket}
               predictionsLocked={predictionsLocked}
               answeredCount={Object.keys(predictions).length}
@@ -1992,6 +2010,17 @@ export default function App() {
               onViewTicket={handleViewTicket}
               onBack={handleRestart}
             />
+          </motion.div>
+        )}
+
+        {screen === 'results' && user && (
+          <motion.div
+            key="results"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <ResultsScreen onBack={handleRestart} />
           </motion.div>
         )}
 
